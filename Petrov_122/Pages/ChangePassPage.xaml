@@ -1,0 +1,85 @@
+﻿<Page x:Class="Petrov_122.Pages.ChangePassPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Petrov_122.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ChangePassPage">
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Логин:"
+                       Grid.Row="0" Grid.Column="0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,0,10,10"/>
+                <Grid Grid.Row="0" Grid.Column="1" Margin="0,0,0,10">
+                    <TextBox x:Name="TbLogin"
+                             Background="Transparent"
+                             ToolTip="Введите ваш логин"
+                             TextWrapping="Wrap"
+                             Height="29"/>
+                </Grid>
+
+                <Label Content="Текущий пароль:"
+                       Grid.Row="1" Grid.Column="0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,0,10,10"/>
+                <Grid Grid.Row="1" Grid.Column="1" Margin="0,0,0,10">
+                    <PasswordBox x:Name="CurrentPasswordBox"
+                                 Background="Transparent"
+                                 ToolTip="Введите текущий пароль"
+                                 Height="33"/>
+                </Grid>
+
+                <Label Content="Новый пароль:"
+                       Grid.Row="2" Grid.Column="0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,0,10,10"/>
+                <Grid Grid.Row="2" Grid.Column="1" Margin="0,0,0,10">
+                    <PasswordBox x:Name="NewPasswordBox"
+                                 Background="Transparent"
+                                 ToolTip="Введите новый пароль"
+                                 Height="33"/>
+                </Grid>
+
+                <Label Content="Подтвердите пароль:"
+                       Grid.Row="3" Grid.Column="0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,0,10,10"/>
+                <Grid Grid.Row="3" Grid.Column="1" Margin="0,0,0,20">
+                    <PasswordBox x:Name="ConfirmPasswordBox"
+                                 Background="Transparent"
+                                 ToolTip="Повторите новый пароль"
+                                 Height="33"/>
+                </Grid>
+
+                <Button x:Name="ButtonSave"
+                        Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+                        Content="Сохранить изменения"
+                        HorizontalAlignment="Center"
+                        Width="170"
+                        Height="35"
+                        Click="ButtonSave_Click" />
+
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>
