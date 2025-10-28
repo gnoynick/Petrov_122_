@@ -4,7 +4,6 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Petrov_122.Pages"
-      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Добавление платежа">
@@ -82,25 +81,23 @@
                  FontSize="14"
                  VerticalAlignment="Center"/>
 
-        <!-- Дата и время -->
-        <TextBlock Text="Дата и время:"
+        <!-- Дата -->
+        <TextBlock Text="Дата:"
                    Grid.Row="6" Grid.Column="0"
                    FontSize="14"
                    VerticalAlignment="Center"
                    Margin="0,0,10,0"
                    FontWeight="SemiBold"/>
 
-        <!-- MaskedTextBox из Extended WPF Toolkit -->
-        <xctk:MaskedTextBox x:Name="TBDateTime"
+        <TextBox x:Name="TBDate" 
                  Grid.Row="6" Grid.Column="1"
-                 Value="{Binding Date}"
+                 Margin="0,0,0,0"
+                 Text="{Binding Date}" 
                  Height="30"
                  Padding="5"
                  FontSize="14"
                  VerticalAlignment="Center"
-                 Mask="00.00.0000 00:00"
-                 PromptChar="_"
-                 ToolTip="Формат: дд.мм.гггг чч:мм"/>
+                 ToolTip="Формат: дд.мм.гггг"/>
 
         <!-- Клиент -->
         <TextBlock Text="Клиент:"
