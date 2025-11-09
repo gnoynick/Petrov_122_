@@ -291,8 +291,7 @@ namespace Petrov_122.Pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка экспорта в Word: {ex.Message}", "Ошибка",
-                              MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Ошибка экспорта в Word: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
