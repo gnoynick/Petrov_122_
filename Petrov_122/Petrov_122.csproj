@@ -308,6 +308,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\current_profile_photo.jpg" />
     <Content Include="Resources\default.png" />
   </ItemGroup>
   <ItemGroup>

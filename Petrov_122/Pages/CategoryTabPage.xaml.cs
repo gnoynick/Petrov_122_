@@ -42,24 +42,32 @@ namespace Petrov_122.Pages
         }
         private void ButtonDel_Click(object sender, RoutedEventArgs e)
         {
-            var categoryForRemoving =
-            DataGridCategory.SelectedItems.Cast<Category>().ToList();
-            if (MessageBox.Show($"Вы точно хотите удалить записи в  количестве {categoryForRemoving.Count()}  элементов ? ", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            var categoriesForRemoving = DataGridCategory.SelectedItems.Cast<Category>().ToList();
+
+            if (MessageBox.Show($"Вы точно хотите удалить {categoriesForRemoving.Count} категорий?",
+                "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 try
                 {
-                    Entities.GetContext().Category.RemoveRange(categoryForRemoving);
-                    Entities.GetContext().SaveChanges();
+                    var context = Entities.GetContext();
+
+                    foreach (var category in categoriesForRemoving)
+                    {
+                        var payments = context.Payment.Where(p => p.CategoryID == category.ID).ToList();
+                        context.Payment.RemoveRange(payments);
+                    }
+
+                    context.Category.RemoveRange(categoriesForRemoving);
+                    context.SaveChanges();
+
                     MessageBox.Show("Данные успешно удалены!");
-                    DataGridCategory.ItemsSource =
-                    Entities.GetContext().Category.ToList();
+                    DataGridCategory.ItemsSource = Entities.GetContext().Category.ToList();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message.ToString());
                 }
             }
-
         }
         private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
